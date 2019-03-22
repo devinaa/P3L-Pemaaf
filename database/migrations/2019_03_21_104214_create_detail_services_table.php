@@ -13,17 +13,18 @@ class CreateDetailServicesTable extends Migration
      */
     public function up()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Schema::create('detail_services', function (Blueprint $table) {
            $table->increments('ds_id');
-           $table->integer('jasa_id');
-           $table->foreign('jasa_id')->references('jasa_id')->on('jasas')->onUpdate('cascade');
-           $table->integer('tj_id');
+           $table->integer('jasa_id')->unsigned();
+           $table->foreign('jasa_id')->references('jasa_id')->on('jasas')->onUpdate('cascade')->onDelete('cascade');
+           $table->string('tj_id',6);
            $table->foreign('tj_id')->references('tj_id')->on('transaksi_juals')->onUpdate('cascade');
            $table->integer('ds_jasa');
-           $table->foreign('ds_jasa')->references('jasa_id')->on('jasas')->onUpdate('cascade');
            $table->double('ds_jumlah'); 
            $table->timestamps();
         });
+         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 
     /**
@@ -33,6 +34,9 @@ class CreateDetailServicesTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        
         Schema::dropIfExists('detail_services');
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

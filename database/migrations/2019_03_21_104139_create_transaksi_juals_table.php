@@ -14,8 +14,8 @@ class CreateTransaksiJualsTable extends Migration
     public function up()
     {
         Schema::create('transaksi_juals', function (Blueprint $table) {
-            $table->increments('tj_id',6)->primary();
-            $table->integer('cab_id')->nullable();
+            $table->string('tj_id',6)->primary();
+            $table->integer('cab_id')->unsigned();
             $table->foreign('cab_id')->references('cab_id')->on('cabangs')->onUpdate('cascade');
             $table->date('tj_tanggal');
             $table->integer('tj_jumlah');
