@@ -21,6 +21,8 @@ class CreateSparepartsTable extends Migration
             $table->double('sp_hargaJual');
             $table->integer('sp_minStok');
             $table->integer('sp_stok');
+            $table->string('sp_kodeLetak',11);
+            $table->integer('sp_merk');
             $table->string('sp_gambar');
             $table->timestamps();
         });

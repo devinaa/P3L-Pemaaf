@@ -17,6 +17,7 @@ class pegawai extends Model
     'pgw_jabatan',
     'pgw_username',
     'pgw_password',
+    'cab_id',
     ];
 
    public function cabangs(){

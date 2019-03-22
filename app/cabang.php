@@ -13,7 +13,9 @@ class cabang extends Model
        'cab_nama',
        'cab_alamat',
        'cab_telepon',
-       'cab_web',];
+       'cab_web',
+       'pgw_id',
+    ];
     public function pegawais(){
         return $this->hasMany('App\pegawai','pgw_id');
     }
