@@ -22,6 +22,7 @@ class CreateSparepartsTable extends Migration
             $table->integer('sp_minStok');
             $table->integer('sp_stok');
             $table->string('sp_gambar');
+            $table->timestamps();
         });
     }
 

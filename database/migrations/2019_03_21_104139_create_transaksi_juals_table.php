@@ -29,6 +29,7 @@ class CreateTransaksiJualsTable extends Migration
             $table->foreign('id_montir')->references('pgw_id')->on('pegawais')->onUpdate('cascade');
             $table->integer('id_montir2')->unsigned();
             $table->foreign('id_montir2')->references('pgw_id')->on('pegawais')->onUpdate('cascade')->nullable();
+            $table->timestamps();
         });
     }
 

@@ -22,6 +22,7 @@ class CreateDetailServicesTable extends Migration
            $table->integer('ds_jasa');
            $table->foreign('ds_jasa')->references('jasa_id')->on('jasas')->onUpdate('cascade');
            $table->double('ds_jumlah'); 
+           $table->timestamps();
         });
     }
 

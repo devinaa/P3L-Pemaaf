@@ -17,6 +17,7 @@ class CreateMotorsTable extends Migration
             $table->increments('mtr_id');
             $table->string('mtr_merk');
             $table->string('mtr_tipe');
+            $table->timestamps();
         });
     }
 
