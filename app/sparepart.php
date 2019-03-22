@@ -17,5 +17,9 @@ class sparepart extends Model
     'sp_minStok',
     'sp_stok',
     'sp_gambar',
+    'sisa_stok'
     ];
+     public function sisa_stok(){
+        return $this->belongTo('App\sisa_stok','sisa_id');
+    }
 }
