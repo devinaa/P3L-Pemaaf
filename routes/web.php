@@ -14,7 +14,12 @@
 Route::get('/', function () {
     return view('home');
 });
-
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/login', function () {
+    return view('login');
+})->middleware('auth:pegawai');
+Route::get('/login', 'LoginController@index')->name('login');
+
+Route::post('/kirimdata','LoginController@send');
+Route::post('/logut','LoginController@logut');

@@ -41,3 +41,17 @@ $('.tab a').on('click', function (e) {
   $(target).fadeIn(600);
   
 });
+
+function get_login() {
+  var tampung_username = document.getElementById('pgw_username').value;
+  var tampung_password = document.getElementById('pgw_password').value;
+  if (tampung_username == "" && tampung_password == "") {
+    alert("Field Login tidak boleh ada yang kosong");
+  }
+  else if (tampung_username != document.getElementById('pgw_username') && tampung_password != document.getElementById('pgw_password')){
+    alert('Cek lagi Username/Password Anda')
+  } 
+  else {
+    alert("Selamat datang : " + tampung_username);
+  }
+}

@@ -85,21 +85,19 @@
                         
                     </div>
                     <div class="modal-body">
-                        <form class="form-inline">
+                        <form class="form-signin" action="/kirimdata" method="post">
+                        {{ csrf_field() }}
                             <div class="form-group">
                                 <label class="sr-only" for="pgw_username">Username</label><input type="text" class="form-control input-sm"
-                                    placeholder="Username" id="pgw_username" name="pgw_">
+                                    placeholder="Username" id="pgw_username" name="pgw_username">
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" for="password">Password</label>
-                                <input type="password" class="form-control input-sm" placeholder="Password" id="password"
-                                    name="password"></div>
-                            
+                                <input type="password" class="form-control input-sm" placeholder="Password" id="pgw_password" name="pgw_password"></div>
                         </form>
-                        
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success btn-ms">Login</button>
+                        <button type="submit" class="btn btn-success btn-ms" onclick="get_login()">Login</button>
                         <button type="button" class="btn btn-default btn-ms" data-dismiss="modal">Cancel</button>
                     </div>
                 </div>
@@ -116,17 +114,18 @@
         </div>
     </footer>
     <!-- JavaScript files-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/popper.js/umd/popper.min.js"> </script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
-    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
-    <script src="vendor/chart.js/Chart.min.js"></script>
-    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/charts-home.js"></script>
+    <script src="{{asset(vendor/jquery/jquery.min.js)}}"></script>
+    <script src="{{asset(vendor/popper.js/umd/popper.min.js)}}"> </script>
+    <script src="{{asset(vendor/bootstrap/js/bootstrap.min.js)}}"></script>
+    <script src="{{asset(js/grasp_mobile_progress_circle-1.0.0.min.js)}}"></script>
+    <script src="{{asset(vendor/jquery.cookie/jquery.cookie.js")}}> </script>
+    <script src="{{asset(vendor/chart.js/Chart.min.js)}}"></script>
+    <script src="{{asset(vendor/jquery-validation/jquery.validate.min.js)}}"></script>
+    <script src="{{asset(vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js)}}"></script>
+    <script src="{{asset(js/charts-home.js)}}"></script>
+     <script src="{{asset('js/login.js')}}"></script>
     <!-- Main File-->
-    <script src="js/front.js"></script>
+    <script src="{{asset(js/front.js)}}"></script>
 </body>
 
 </html>

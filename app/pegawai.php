@@ -20,7 +20,10 @@ class pegawai extends Model
     'cab_id',
     ];
 
-   public function cabangs(){
+    public function cabangs(){
         return $this->belongTo('App\cabang','cab_id');
+    }
+    public function transaksi_bayars(){
+        return $this->belongTo('App\transaksi_bayar','tb_id');
     }
 }
