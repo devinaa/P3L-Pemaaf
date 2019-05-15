@@ -28,69 +28,73 @@
     <!-- Tweaks for older IEs-->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-        
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->     
 </head>
-<body>
-<nav class="side-navbar" role="navigation">
+  <body>
+    <nav class="side-navbar" role="navigation">
         <div class="side-navbar-wrapper">
-            <!-- Sidebar Header    -->
+        <!-- Sidebar Header    -->
             <div class="sidenav-header d-flex align-items-center justify-content-center">
+                <!-- User Info-->
+                <div class="sidenav-header-inner text-center"><img src="img/admin.png" alt="person"
+                        class="img-fluid rounded-circle">
+                    <h2 class="h5">Devina</h2><span>Admin</span>
+                </div>
                 <!-- Small Brand information, appears on minimized sidebar-->
-                <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center">
-                        <strong>MAAF</strong><strong class="text-primary"></strong></a></div>
+                <div class="sidenav-header-logo"><a href="{{ url('/homepegawai') }}" class="brand-small text-center">
+                <strong>MAAF</strong></a></div>
             </div>
             <!-- Sidebar Navigation Menus-->
-             <div class="main-menu">
+          <div class="main-menu">
           <h5 class="sidenav-heading">Menu</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
-            <li><a href="index.html"> <i class="icon-home"></i>Home</a></li>
+            <li><a href="{{ url('/homepegawai') }}"> <i class="icon-home"></i>Home</a></li>
             <li><a href="#dropdownPegawai" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-users"></i>Pegawai </a>
               <ul id="dropdownPegawai" class="collapse list-unstyled ">
-                <li><a href="#">Input</a></li>
-                <li><a href="#">Edit</a></li>
-                <li><a href="#">Tampil</a></li>
-                <li><a href="#">Cari</a></li>
+                <li><a href="{{ url('/pgwInput') }}">Input</a></li>
+                <li><a href="{{ url('/pgwEdit') }}">Edit</a></li>
+                <li><a href="{{ url('/pgwTampil') }}">Tampil</a></li>
+                <li><a href="{{ url('/pgwCari') }}">Cari</a></li>
               </ul>
             </li>
             <li><a href="#dropdownSpareparts" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-briefcase"></i>Spareparts </a>
               <ul id="dropdownSpareparts" class="collapse list-unstyled ">
-                <li><a href="#">Input</a></li>
-                <li><a href="#">Edit</a></li>
-                <li><a href="#">Tampil</a></li>
-                <li><a href="#">Cari</a></li>
+                <li><a href="{{ url('/sparepartInput') }}">Input</a></li>
+                <li><a href="{{ url('/sparepartEdit') }}">Edit</a></li>
+                <li><a href="{{ url('/sparepartTampil') }}">Tampil</a></li>
+                <li><a href="{{ url('/sparepartCari') }}">Cari</a></li>
               </ul>
             </li>
             <li><a href="#dropdownJasa" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-wrench"></i>Jasa </a>
               <ul id="dropdownJasa" class="collapse list-unstyled ">
-                <li><a href="#">Input</a></li>
-                <li><a href="#">Edit</a></li>
-                <li><a href="#">Tampil</a></li>
-                <li><a href="#">Cari</a></li>
+                <li><a href="{{ url('/jasaInput') }}">Input</a></li>
+                <li><a href="{{ url('/jasaEEdit') }}">Edit</a></li>
+                <li><a href="{{ url('/jasaTampil') }}">Tampil</a></li>
+                <li><a href="{{ url('/jasaCari') }}">Cari</a></li>
               </ul>
             </li>
             <li><a href="#dropdownSupplier" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-handshake-o"></i>Supplier </a>
               <ul id="dropdownSupplier" class="collapse list-unstyled ">
-                <li><a href="#">Input</a></li>
-                <li><a href="#">Edit</a></li>
-                <li><a href="#">Tampil</a></li>
-                <li><a href="#">Cari</a></li>
+                <li><a href="{{ url('/supplierInput') }}">Input</a></li>
+                <li><a href="{{ url('/supplierEdit') }}">Edit</a></li>
+                <li><a href="{{ url('/supplierTampil') }}">Tampil</a></li>
+                <li><a href="{{ url('/supplierCari') }}">Cari</a></li>
               </ul>
             </li>
             <li><a href="#dropdownMotor" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-motorcycle"></i>Motor </a>
               <ul id="dropdownMotor" class="collapse list-unstyled ">
-                <li><a href="#">Input</a></li>
-                <li><a href="#">Edit</a></li>
-                <li><a href="#">Tampil</a></li>
-                <li><a href="#">Cari</a></li>
+                <li><a href="{{ url('/mtrInput') }}">Input</a></li>
+                <li><a href="{{ url('/mtrEdit') }}">Edit</a></li>
+                <li><a href="{{ url('/mtrTampil') }}">Tampil</a></li>
+                <li><a href="{{ url('/mtrCari') }}">Cari</a></li>
               </ul>
             </li>
             <li><a href="#dropdownCabang" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-home"></i>Cabang </a>
               <ul id="dropdownCabang" class="collapse list-unstyled ">
-                <li><a href="#">Input</a></li>
-                <li><a href="#">Edit</a></li>
-                <li><a href="#">Tampil</a></li>
-                <li><a href="#">Cari</a></li>
+                <li><a href="{{ url('/cabangInput') }}">Input</a></li>
+                <li><a href="{{ url('/cabangEdit') }}">Edit</a></li>
+                <li><a href="{{ url('/cabangTampil') }}">Tampil</a></li>
+                <li><a href="{{ url('/cabangCari') }}">Cari</a></li>
               </ul>
             </li>
             <li><a href="#dropdownPengadaan" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-shopping-cart"></i>Pengadaan </a>
@@ -110,8 +114,8 @@
           </ul>
         </div>
       </div>
-        </div>
-    </nav>
+    </div>
+  </nav>
     <div class="page">
       <!-- navbar-->
       <header class="header">
@@ -150,41 +154,18 @@
           </ul>
         </div>
       </div>
-      <!-- Tempat Count item gadget -->
-      <!-- Header Section-->
-      <!-- CODENYA TARUH SINI -->
-      
-      <footer class="main-footer">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-6">
-              <p>PEMAAF &copy; 2019</p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <!-- KKODE TARUH DISINI -->
     </div>
-    <footer class="main-footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>PEMAAF &copy; 2019</p>
-                </div>
-            </div>
-        </div>
-    </footer>
     <!-- JavaScript files-->
-    <script src="{{asset(vendor/jquery/jquery.min.js)}}"></script>
-    <script src="{{asset(vendor/popper.js/umd/popper.min.js)}}"> </script>
-    <script src="{{asset(vendor/bootstrap/js/bootstrap.min.js)}}"></script>
-    <script src="{{asset(js/grasp_mobile_progress_circle-1.0.0.min.js)}}"></script>
-    <script src="{{asset(vendor/jquery.cookie/jquery.cookie.js")}}> </script>
-    <script src="{{asset(vendor/chart.js/Chart.min.js)}}"></script>
-    <script src="{{asset(vendor/jquery-validation/jquery.validate.min.js)}}"></script>
-    <script src="{{asset(vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js)}}"></script>
-    <script src="{{asset(js/charts-home.js)}}"></script>
-     <script src="{{asset('js/login.js')}}"></script>
-    <!-- Main File-->
-    <script src="{{asset(js/front.js)}}"></script>
-</body>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/charts-home.js"></script>
+    <script src="js/front.js"></script>
+  </body>
 </html>

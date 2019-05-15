@@ -16,7 +16,7 @@ class CreateSisaStoksTable extends Migration
         Schema::create('sisa_stoks', function (Blueprint $table) {
             $table->increments('sisa_id');
             $table->integer('sisa_jumlah');
-            $table->string('sp_id',6);
+            $table->integer('sp_id')->unsigned();
             $table->foreign('sp_id')->references('sp_id')->on('spareparts')->onUpdate('cascade')->onDelete('cascade');
             $table->date('sisa_tanggal');
             $table->timestamps();

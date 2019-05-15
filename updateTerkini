@@ -1,0 +1,82 @@
+yang udah di benerin:
+15/04
+dropdown di input pegawai
+flash message diinput pgw??
+modal di delete pegawai 
+tabel kecocokan spare dan motor
+relasi semua detail dan transaksi
+tampil detailSparepartMotor dgn button cek
+
+//Kebinggungan HQQ
+ini kenapa gak mau
+<!-- <label>Supplier ID</label>
+    <select name="su_id" id="su_id" class="form-control">
+    <option value="">-- Pilih --</option>
+    @foreach ($suppliers as $supplier)
+    <option value="{{ $supplier->su_id }}">{{ $supplier->cab_nama }}</option>
+    @endforeach 
+    </select>
+    
+    <label>Motor ID</label>
+    <select name="mtr_id" id="mtr_id" class="form-control">
+    <option value="">-- Pilih --</option>
+    @foreach ($motors as $motor)
+    <option value="{{ $motor->mtr_id }}">{{ $motor->mtr-tipe }}</option>
+    @endforeach 
+    </select> -->
+
+
+pemberitahuan:
+cabang nanti saja ?? aku lupa ini apaaaa
+
+hak akses nya tolong diperbarui
+pengadaan(search sama editnya blm bisa)
+mutator carbon(waktu sekarang/created_at)
+detail pegawaikerja
+pengadaanpen, penjualan, pembayaran (mvcnya udah, algo nya belsasek)
+dropdown DONE
+
+
+https://itsolutionstuff.com/post/laravel-57-crud-create-read-update-delete-tutorial-example-example.html
+
+23/04 malam
+pengadaanEdit nya blm bisa
+
+25/04 habis tcp
+delete spare sama delete pengadaan nya blm bisa
+jangan lupa nambah status pengadaan, diawal statusnya blm di konfirm, baru nanti di edit baru bs di konfirm
+https://stackoverflow.com/questions/25872376/laravel-eloquent-join 
+https://stackoverflow.com/questions/43094543/what-does-ondeletecascade-mean
+
+Fungsi sortir harga spareparts web
+Fungsi sortir jumlah stok spareparts web
+Fungsi sortir harga spareparts android
+Fungsi sortir jumlah stok spareparts android
+
+Laporan
+https://stackoverflow.com/questions/45704106/laravel-5-4-how-can-i-get-the-sum-of-the-total-new-applications-per-month
+https://stackoverflow.com/questions/42236738/laravel-efficient-way-to-query-monthly-data-per-category
+https://stackoverflow.com/questions/12995863/product-sales-report-weekly-monthly
+https://stackoverflow.com/questions/9888263/count-records-for-every-month-in-a-year/9888386
+
+Laporan udah bisa tampil semua
+Fungsi Laporan Spareparts Terlaris web V
+Fungsi Laporan Pendapatan Bulanan web  V (diagram batang tipis)
+Fungsi Laporan Pendapatan Tahunan web  v (diagram batang tebal)
+Fungsi Laporan Pengeluaran Bulanan web v (diagram lingkaran)
+Fungsi Laporan Penjualan Jasa web V
+Fungsi Laporan Sisa Stok Per Tipe Barang web v(diagram garis)
+
+gimana kalau riwayat stok yang kurang dari batas/mendekati batas minimal
+Fungsi cari riwayat stok sparepart web(tanggal_penjualan)->carinya berdasarkan tipe/merk
+Fungsi tampil riwayat stok sparepart web(tanggal, sp_nama, stok)
+Fungsi hapus riwayat stok sparepart web(sisa_stok/sisa_id)
+--------------------------->> 3 fungsi diatas udah tampil <<--------------------------------
+
+fungsi cek stok nya ituu pakai sortir aja(sudah bisa)
+12/05
+grahps nya baru pendapatan bulanan itu pun juga belum muncul
+rapiin biar sama dengan template layout laporan sp Terlaris (semua laporan udah rapi)
+surat pengadaan udah, tp belum rapi dan blm mendetail
+
+input surat pengadaannya kan belum( jadinya kayak pengadaanInput saja, but diubah jadi surat_status(cetak/belum))

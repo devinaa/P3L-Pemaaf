@@ -15,4 +15,11 @@ class supplier extends Model
     'su_namaSales',
     'su_teleponSales',
     ];
+
+    public function sparepart(){
+        return $this->hasMany('App\sparepart','sp_id');
+    }
+    public function transaksi_pengadaan(){
+        return $this->hasMany('App\transaksi_pengadaan','ta_id');
+    }
 }

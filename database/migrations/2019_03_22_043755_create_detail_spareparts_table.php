@@ -15,11 +15,12 @@ class CreateDetailSparepartsTable extends Migration
     {
         Schema::create('detail_spareparts', function (Blueprint $table) {
             $table->increments('dsp_id');
-            $table->string('sp_id',6);
+            $table->integer('sp_id')->unsigned();
             $table->foreign('sp_id')->references('sp_id')->on('spareparts')->onUpdate('cascade')->onDelete('cascade');
             $table->string('tj_id',6);
             $table->foreign('tj_id')->references('tj_id')->on('transaksi_juals')->onUpdate('cascade');
             $table->double('ds_jumlah'); 
+            $table->double('subSP'); 
             $table->timestamps();  
         });
     }

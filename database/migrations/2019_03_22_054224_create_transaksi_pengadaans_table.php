@@ -14,10 +14,11 @@ class CreateTransaksiPengadaansTable extends Migration
     public function up()
     {
         Schema::create('transaksi_pengadaans', function (Blueprint $table) {
-            $table->string('ta_id',10)->primary();
+            $table->increments('ta_id');
             $table->integer('su_id')->unsigned();
-            $table->foreign('su_id')->references('su_id')->on('suppliers')->onUpdate('cascade');
+            $table->foreign('su_id')->references('su_id')->on('suppliers')->onDelete('cascade')->onUpdate('cascade');
             $table->date('ta_tanggal');
+            $table->string('ta_status',5);
             $table->timestamps();
         });
     }

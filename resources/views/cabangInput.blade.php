@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="{{asset('vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css')}}">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="{{asset('css/style.default.css')}}" id="theme-stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    @include('sweet::alert')
+  
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
     <!-- Custom stylesheet - for your changes-->
     <!-- <link rel="stylesheet" href="css/custom.css"> -->
     <!-- Favicon-->
@@ -29,76 +33,65 @@
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-        
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+     
 </head>
 <body>
+ @if (session('alert'))
+    <div class="alert alert-success">
+        {{ session('alert') }}
+    </div>
+@endif
 <nav class="side-navbar" role="navigation">
-        <div class="side-navbar-wrapper">
-            <!-- Sidebar Header    -->
-            <div class="sidenav-header d-flex align-items-center justify-content-center">
-                <!-- Small Brand information, appears on minimized sidebar-->
-                <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center">
-                        <strong>MAAF</strong><strong class="text-primary"></strong></a></div>
-            </div>
-            <!-- Sidebar Navigation Menus-->
-             <div class="main-menu">
+    <div class="side-navbar-wrapper">
+    <!-- Sidebar Header    -->
+      <div class="sidenav-header d-flex align-items-center justify-content-center">
+        <!-- User Info-->
+        <div class="sidenav-header-inner text-center"><img src="img/admin.png" alt="person" class="img-fluid rounded-circle">
+           <h2>Hai</h2><a href="{{ url('editPassword') }}" class="nav-link logout"> <span class="d-none d-sm-inline-block">Pegawai</span></a>
+        </div>
+        <!-- Small Brand information, appears on minimized sidebar-->
+        <div class="sidenav-header-logo"><a href="{{ url('/homepegawai') }}" class="brand-small text-center">
+          <strong>MAAF</strong></a></div>
+        </div>      
+        <!-- Sidebar Navigation Menus-->
+        <div class="main-menu">
           <h5 class="sidenav-heading">Menu</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
-            <li><a href="index.html"> <i class="icon-home"></i>Home</a></li>
+            <li><a href="{{ url('') }}"> <i class="icon-home"></i>Home</a></li>
             <li><a href="#dropdownPegawai" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-users"></i>Pegawai </a>
               <ul id="dropdownPegawai" class="collapse list-unstyled ">
-                <li><a href="#">Input</a></li>
-                <li><a href="#">Edit</a></li>
-                <li><a href="#">Tampil</a></li>
-                <li><a href="#">Cari</a></li>
+                <li><a href="{{ url('/pgwTampil') }}">CRUDS Pegawai</a></li>
               </ul>
             </li>
             <li><a href="#dropdownSpareparts" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-briefcase"></i>Spareparts </a>
               <ul id="dropdownSpareparts" class="collapse list-unstyled ">
-                <li><a href="#">Input</a></li>
-                <li><a href="#">Edit</a></li>
-                <li><a href="#">Tampil</a></li>
-                <li><a href="#">Cari</a></li>
+                <li><a href="{{ url('/sparepartTampil') }}">CRUDS Sparepart</a></li>
               </ul>
             </li>
             <li><a href="#dropdownJasa" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-wrench"></i>Jasa </a>
               <ul id="dropdownJasa" class="collapse list-unstyled ">
-                <li><a href="#">Input</a></li>
-                <li><a href="#">Edit</a></li>
-                <li><a href="#">Tampil</a></li>
-                <li><a href="#">Cari</a></li>
+                <li><a href="{{ url('/jasaTampil') }}">CRUDS Jasa</a></li>
               </ul>
             </li>
             <li><a href="#dropdownSupplier" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-handshake-o"></i>Supplier </a>
               <ul id="dropdownSupplier" class="collapse list-unstyled ">
-                <li><a href="#">Input</a></li>
-                <li><a href="#">Edit</a></li>
-                <li><a href="#">Tampil</a></li>
-                <li><a href="#">Cari</a></li>
+                <li><a href="{{ url('/supplierTampil') }}">CRUDS Supplier</a></li>
               </ul>
             </li>
             <li><a href="#dropdownMotor" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-motorcycle"></i>Motor </a>
               <ul id="dropdownMotor" class="collapse list-unstyled ">
-                <li><a href="#">Input</a></li>
-                <li><a href="#">Edit</a></li>
-                <li><a href="#">Tampil</a></li>
-                <li><a href="#">Cari</a></li>
+                <li><a href="{{ url('/motorTampil') }}">CRUDS Motor</a></li>
               </ul>
             </li>
             <li><a href="#dropdownCabang" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-home"></i>Cabang </a>
-              <ul id="dropdownCabang" class="collapse list-unstyled ">
-                <li><a href="#">Input</a></li>
-                <li><a href="#">Edit</a></li>
-                <li><a href="#">Tampil</a></li>
-                <li><a href="#">Cari</a></li>
+              <ul id="dropdownCabang" class="collapse list-unstyled ">  
+                <li><a href="{{ url('/cabangTampil') }}">CRUDS Cabang</a></li>
               </ul>
             </li>
             <li><a href="#dropdownPengadaan" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-shopping-cart"></i>Pengadaan </a>
               <ul id="dropdownPengadaan" class="collapse list-unstyled ">
-                <li><a href="#">Input</a></li>
-                <li><a href="#">Edit</a></li>
-                <li><a href="#">Tampil</a></li>
-                <li><a href="#">Cari</a></li>
+                 <li><a href="{{ url('/pengadaanTampil') }}">CRUDS Pengadaan</a></li>
               </ul>
             </li>
             <li><a href="#dropdownHistori" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-line-chart"></i>Histori </a>
@@ -110,8 +103,8 @@
           </ul>
         </div>
       </div>
-        </div>
-    </nav>
+    </div>
+  </nav>
     <div class="page">
       <!-- navbar-->
       <header class="header">
@@ -135,7 +128,7 @@
                   </ul>
                 </li>
                 <!-- Log out-->
-                <li class="nav-item"><a href="login.html" class="nav-link logout"> <span class="d-none d-sm-inline-block">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item"><a href="{{ url('logout') }}" class="nav-link logout"> <span class="d-none d-sm-inline-block">Logout</span><i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
@@ -145,46 +138,62 @@
       <div class="breadcrumb-holder">
         <div class="container-fluid">
           <ul class="breadcrumb">
-            <li class="breadcrumb-item"><a href="homepegawai.php">Home</a></li>
-            <li class="breadcrumb-item active">Edit Pegawai </li>
+            <li class="breadcrumb-item"><a href="{{ url('/homepegawai') }}">Home</a></li>
+            <li class="breadcrumb-item active">Input Cabang</li>
           </ul>
         </div>
       </div>
-      <!-- Tempat Count item gadget -->
-      <!-- Header Section-->
-      <!-- CODENYA TARUH SINI -->
-      
-      <footer class="main-footer">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-6">
-              <p>PEMAAF &copy; 2019</p>
+      <section class="forms">
+          <div class="container-fluid">
+            <!-- Page Header-->
+            <header>
+                <h4>Input Cabang</h4>
+            </header>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="card">
+                  <div class="card-body">
+  
+                    <form action="{{ url('/api/cabang') }}" method="post" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                      <div class="form-group">
+                        <label>Nama Cabang</label>
+                        <input type="text" id="cab_nama" name="cab_nama" placeholder="" class="form-control" required>
+                      </div>
+                      <div class="form-group">
+                        <label>Alamat</label>
+                        <input type="text" id="cab_alamat" name="cab_alamat" placeholder="" class="form-control" required>
+                      </div>
+                      <div class="form-group">
+                        <label>No Telepon</label>
+                        <input type="text" id="cab_telepon" name="cab_telepon" placeholder="" class="form-control" required>
+                      </div>
+                      <div class="form-group">
+                        <label>Website</label>
+                        <input type="text" id="cab_web" name="cab_web" placeholder="" class="form-control" required>
+                      </div>
+                      <div class="form-group">
+                        <input type="submit" value="Simpan" class="btn btn-primary" >
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </footer>
+        </section>
     </div>
-    <footer class="main-footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>PEMAAF &copy; 2019</p>
-                </div>
-            </div>
-        </div>
-    </footer>
     <!-- JavaScript files-->
-    <script src="{{asset(vendor/jquery/jquery.min.js)}}"></script>
-    <script src="{{asset(vendor/popper.js/umd/popper.min.js)}}"> </script>
-    <script src="{{asset(vendor/bootstrap/js/bootstrap.min.js)}}"></script>
-    <script src="{{asset(js/grasp_mobile_progress_circle-1.0.0.min.js)}}"></script>
-    <script src="{{asset(vendor/jquery.cookie/jquery.cookie.js")}}> </script>
-    <script src="{{asset(vendor/chart.js/Chart.min.js)}}"></script>
-    <script src="{{asset(vendor/jquery-validation/jquery.validate.min.js)}}"></script>
-    <script src="{{asset(vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js)}}"></script>
-    <script src="{{asset(js/charts-home.js)}}"></script>
-     <script src="{{asset('js/login.js')}}"></script>
-    <!-- Main File-->
-    <script src="{{asset(js/front.js)}}"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/charts-home.js"></script>
+    <script src="js/front.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 </body>
 </html>

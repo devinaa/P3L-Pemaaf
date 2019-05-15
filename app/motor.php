@@ -12,7 +12,13 @@ class motor extends Model
    protected $fillable = [
        'mtr_merk',
        'mtr_tipe',];
-    // public function transaksi_jual(){
-    //     return $this->belong('App\transaksi_jual','tj_id');
-    // }
+    public function transaksi_jual(){
+        return $this->belongsTo('App\transaksi_jual','tj_id');
+    }
+    public function sparepart(){
+        return $this->belongsToMany('App\sparepart','detail_sparepart_motors','mtr_id','sp_id');
+    }
+    public function detail_motor(){
+        return $this->hasMany('App\detail_motor','dm_id');
+    }
 }

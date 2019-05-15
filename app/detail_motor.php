@@ -15,4 +15,7 @@ class detail_motor extends Model
         'mtr_id',
         'dm_status',
         ];
+     public function motor(){
+        return $this->belongsTo('App\motor','mtr_id');
+    }
 }

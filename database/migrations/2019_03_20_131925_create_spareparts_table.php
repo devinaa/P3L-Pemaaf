@@ -14,7 +14,7 @@ class CreateSparepartsTable extends Migration
     public function up()
     {
         Schema::create('spareparts', function (Blueprint $table) {
-            $table->string('sp_id',6)->primary();
+            $table->increments('sp_id');
             $table->string('sp_nama',30);
             $table->string('sp_tipe', 20);
             $table->double('sp_hargaBeli');
@@ -22,8 +22,9 @@ class CreateSparepartsTable extends Migration
             $table->integer('sp_minStok');
             $table->integer('sp_stok');
             $table->string('sp_kodeLetak',11);
-            $table->integer('sp_merk');
+            $table->string('sp_merk');
             $table->string('sp_gambar');
+            $table->integer('su_id')->unsigned();
             $table->timestamps();
         });
     }

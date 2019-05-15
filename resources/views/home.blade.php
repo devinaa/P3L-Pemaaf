@@ -22,14 +22,107 @@
     <link rel="stylesheet" href="{{asset('vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css')}}">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="{{asset('css/style.default.css')}}" id="theme-stylesheet">
-    <!-- Custom stylesheet - for your changes-->
-    <!-- <link rel="stylesheet" href="css/custom.css"> -->
-    <!-- Favicon-->
     <link rel="shortcut icon" href="img/favicon.ico">
-    <!-- Tweaks for older IEs-->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!-- Style Untuk Carousell -->
+   <style>
+    `* {box-sizing: border-box}
+    body {font-family: Verdana, sans-serif; margin:0}
+    .mySlides {display: none}
+    img {vertical-align: middle;}
+
+    /* Slideshow container */
+    .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+    }
+
+    /* Next & previous buttons */
+    .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+    }
+
+    /* Caption text */
+    .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    /* transition: background-color 0.6s ease; */
+    }
+
+    .active, .dot:hover {
+    background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+    }
+
+    @-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+    }
+
+    @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+    }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
+    }
+    </style>
         
 </head>
 
@@ -47,12 +140,12 @@
             <div class="main-menu">
                 <h5 class="sidenav-heading">Menu</h5>
                 <ul id="side-main-menu" class="side-menu list-unstyled">
-                    <li><a href="home.html">
+                    <li><a  href="{{ url('') }}">                    
                             <i class="fa fa-home"></i>Home </a></li>
-                    <li><a href="home.html">
-                            <i class="fa fa-search"></i>Riwayat Transaksi</a>
-                    </li>
-                    
+                    <li><a  href="{{ url('/kostumerRiwayatCari') }}">
+                            <i class="fa fa-search"></i>Riwayat Transaksi</a></li>
+                    <li><a  href="{{ url('/kostumerSortir') }}">
+                            <i class="fa fa-wrench"></i>Cek Spareparts</a></li>
                     <li><a  data-toggle="modal" data-target="#loginModal">
                         <i class="fa fa-id-badge"></i>Login </a>
                     </li>
@@ -76,45 +169,81 @@
                 </div>
             </nav>
         </header>
+        <div class="container">
+            <br>
+            <div style="text-align:center">
+                <div class="row">
+                    <div class="column">
+                        <h2>Bengkel Pemaaf</h2>
+                        <div class="slideshow-container">
+                        <div class="mySlides ">
+                        <div class="numbertext">1 / 3</div>
+                        <img src="img/bengkel4.jpg" style="width:100%">
+                        <div class="text">Memberikan Pelayanan Terbaik</div>
+                        </div>
+
+                        <div class="mySlides ">
+                        <div class="numbertext">2 / 3</div>
+                        <img src="img/bengkel.jpg" style="width:100%">
+                        <div class="text">Pekerja Yang Kompeten</div>
+                        </div>
+
+                        <div class="mySlides ">
+                        <div class="numbertext">3 / 3</div>
+                        <img src="img/bengkel7.jpg" style="width:100%">
+                        <div class="text" style="text-color:black">Memuaskan</div>
+                        </div>
+<!-- 
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+
+                        </div>
+                        <br>
+
+                        <div style="text-align:center">
+                        <span class="dot" onclick="currentSlide(1)"></span> 
+                        <span class="dot" onclick="currentSlide(2)"></span> 
+                        <span class="dot" onclick="currentSlide(3)"></span> 
+                    </div>
+                    <!-- <img src="img/pemaaf.png" style="width:100px"> -->
+                    <!-- <img src="img/mech2.jpg" alt="Trulli" width="500" height="333"> -->
+                        <div style="text-align:center">
+                        <br>
+                        <h5 align="justify">Bengkel PEMAAF menyediakan jasa service dan penjualan spareparts yang berada di Kota Yogyakarta</h5>
+                        <h5 style="text-align:left">Alamat: Jl. Seturan No 33 (Dalam Jwalk)</h5>
+                        <h5 style="text-align:left">No Telepon: 085232777700</h5>
+                        <h5 style="text-align:left">Web: www.pemaafnyaseturan.com</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
         <div id="loginModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4>Login</h4>
                         <button type="button" class="close" data-dismiss="modal"> &times;</button>
-                        
                     </div>
                     <div class="modal-body">
-                        <form class="form-inline">
+                        <form class="form-signin" action="{{ url('/kirimdata') }}" method="post">
+                            {{ csrf_field() }}
                             <div class="form-group">
-                                <label class="sr-only" for="pgw_username">Username</label><input type="text" class="form-control input-sm"
-                                    placeholder="Username" id="pgw_username" name="pgw_">
+                                <label class="sr-only" for="pgw_username">Username</label>
+                                <input type="text" class="form-control input-sm" placeholder="Username" id="pgw_username" name="pgw_username">
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" for="password">Password</label>
-                                <input type="password" class="form-control input-sm" placeholder="Password" id="password"
-                                    name="password"></div>
-                            
+                                <input type="password" class="form-control input-sm" placeholder="Password" id="pgw_password" name="pgw_password">
+                            </div>
+                            <button type="submit" class="btn btn-success btn-ms" >Login</button>
+                            <button type="button" class="btn btn-default btn-ms" data-dismiss="modal">Cancel</button>
                         </form>
-                        
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-success btn-ms">Login</button>
-                        <button type="button" class="btn btn-default btn-ms" data-dismiss="modal">Cancel</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <footer class="main-footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>PEMAAF &copy; 2019</p>
-                </div>
-            </div>
-        </div>
-    </footer>
     <!-- JavaScript files-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>
@@ -127,6 +256,35 @@
     <script src="js/charts-home.js"></script>
     <!-- Main File-->
     <script src="js/front.js"></script>
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+        showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+        showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+        }
+    </script>
+    
 </body>
 
 </html>

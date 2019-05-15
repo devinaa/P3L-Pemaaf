@@ -32,16 +32,20 @@
         
 </head>
 <body>
-<nav class="side-navbar" role="navigation">
-        <div class="side-navbar-wrapper">
-            <!-- Sidebar Header    -->
-            <div class="sidenav-header d-flex align-items-center justify-content-center">
-                <!-- Small Brand information, appears on minimized sidebar-->
-                <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center">
-                        <strong>MAAF</strong><strong class="text-primary"></strong></a></div>
-            </div>
-            <!-- Sidebar Navigation Menus-->
-             <div class="main-menu">
+  <nav class="side-navbar" role="navigation">
+    <div class="side-navbar-wrapper">
+      <!-- Sidebar Header    -->
+      <div class="sidenav-header d-flex align-items-center justify-content-center">
+        <!-- User Info-->
+        <div class="sidenav-header-inner text-center"><img src="img/admin.png" alt="person" class="img-fluid rounded-circle">
+          <h2 class="h5">Devina</h2><span>Admin</span>
+        </div>
+        <!-- Small Brand information, appears on minimized sidebar-->
+        <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center">
+          <strong>MAAF</strong></a></div>
+        </div>
+          <!-- Sidebar Navigation Menus-->
+        <div class="main-menu">
           <h5 class="sidenav-heading">Menu</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
             <li><a href="index.html"> <i class="icon-home"></i>Home</a></li>
@@ -110,8 +114,8 @@
           </ul>
         </div>
       </div>
-        </div>
-    </nav>
+    </div>
+  </nav>
     <div class="page">
       <!-- navbar-->
       <header class="header">
@@ -135,116 +139,65 @@
                   </ul>
                 </li>
                 <!-- Log out-->
-                <li class="nav-item"><a href="login.html" class="nav-link logout"> <span class="d-none d-sm-inline-block">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item"><a href="{{ url('logout') }}" class="nav-link logout"> <span class="d-none d-sm-inline-block">Logout</span><i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
         </nav>
       </header>
       <!-- Breadcrumb-->
-        <div class="breadcrumb-holder">
-            <div class="container-fluid">
-                <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="homepegawai.php">Home</a></li>
-                    <li class="breadcrumb-item active">Input Pegawai </li>
-                </ul>
-            </div>
-        </div>
-        <section class="forms">
-            <div class="container-fluid">
-                <!-- Page Header-->
-                <header>
-                    <h4>Input Pegawai</h4>
-                </header>
-                <div class="row">
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <form>
-                                <div class="form-group">
-                                    <label>ID</label>
-                                    <input type="text" id="pgw_id" placeholder="" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>Nama</label>
-                                    <input type="text" id="pgw_nama" placeholder="" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>Alamat</label>
-                                    <input type="text" id="pgw_alamat" placeholder="" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>No Telp</label>
-                                    <input type="number" id="pgw_telepon" placeholder="" class="form-control">
-                                </div> 
-                                <div class="form-group">
-                                    <input type="submit" value="Simpan" class="btn btn-primary">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <form>
-                                <div class="form-group">
-                                    <label>Gaji</label>
-                                    <input type="number" id="pgw_gaji" placeholder="" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>Jabatan</label>
-                                    <input type="number" id="pgw_jabatan" placeholder="" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>Username</label>
-                                    <input type="text" placeholder="" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="number" placeholder="" class="form-control">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-      <!-- Tempat Count item gadget -->
-      <!-- Header Section-->
-      <!-- CODENYA TARUH SINI -->
-      
-      <footer class="main-footer">
+      <div class="breadcrumb-holder">
         <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-6">
-              <p>PEMAAF &copy; 2019</p>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Edit Motor </li>
+          </ul>
+        </div>
+      </div>
+      <section class="forms">
+        <div class="container-fluid">
+            <!-- Page Header-->
+            <br>
+            <header>
+                <h4>Edit Motor</h4>
+            </header>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="card">
+                  <div class="card-body">
+                    <form  action="{{ url('/api/motor', [$motors->mtr_id]) }}" method="post" enctype="multipart/form-data">
+                      {{ method_field('PATCH') }}
+                      @csrf
+                      <div class="form-group">
+                          <label>Merk</label>
+                          <input type="text" value="{{ $motors->mtr_merk}}" id="mtr_merk" name="mtr_merk" placeholder="" class="form-control" required>
+                      </div>
+                      <div class="form-group">
+                          <label>Tipe</label>
+                          <input type="text"  value="{{ $motors->mtr_tipe}}" id="mtr_tipe" name="mtr_tipe" placeholder="" class="form-control" required>
+                      </div>
+                      <div class="form-group">
+                          <input type="submit" value="Simpan" class="btn btn-primary">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </footer>
+      </section>
     </div>
-    <footer class="main-footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>PEMAAF &copy; 2019</p>
-                </div>
-            </div>
-        </div>
-    </footer>
     <!-- JavaScript files-->
-    <script src="{{asset(vendor/jquery/jquery.min.js)}}"></script>
-    <script src="{{asset(vendor/popper.js/umd/popper.min.js)}}"> </script>
-    <script src="{{asset(vendor/bootstrap/js/bootstrap.min.js)}}"></script>
-    <script src="{{asset(js/grasp_mobile_progress_circle-1.0.0.min.js)}}"></script>
-    <script src="{{asset(vendor/jquery.cookie/jquery.cookie.js")}}> </script>
-    <script src="{{asset(vendor/chart.js/Chart.min.js)}}"></script>
-    <script src="{{asset(vendor/jquery-validation/jquery.validate.min.js)}}"></script>
-    <script src="{{asset(vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js)}}"></script>
-    <script src="{{asset(js/charts-home.js)}}"></script>
-     <script src="{{asset('js/login.js')}}"></script>
-    <!-- Main File-->
-    <script src="{{asset(js/front.js)}}"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/charts-home.js"></script>
+    <script src="js/front.js"></script>
 </body>
 </html>

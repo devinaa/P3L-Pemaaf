@@ -15,15 +15,16 @@ class SparepartTransformer extends TransformerAbstract
     public function transform(sparepart $spareparts)
     {
         return [
-            'sp_id',
-            'sp_nama',
-            'sp_tipe',
-            'sp_hargaBeli',
-            'sp_hargaJual',
-            'sp_minStok',
-            'sp_stok',
-            'sp_gambar',
-            'sisa_stok'
+            'sp_id' => $spareparts->sp_id,
+            'sp_nama'=> $spareparts->sp_nama,
+            'sp_tipe' => $spareparts->sp_tipe,
+            'sp_hargaBeli' => $spareparts->sp_hargaBeli,
+            'sp_hargaJual' => $spareparts->sp_hargaJual,
+            'sp_minStok' => $spareparts->sp_minStok,
+            'sp_stok' => $spareparts->sp_stok,
+            'sp_gambar' => $spareparts->sp_gambar,
+            'sp_kodeLetak' => $spareparts->sp_kodeLetak,
+            'sp_merk' => $spareparts->sp_merk
         ];
     }
 }

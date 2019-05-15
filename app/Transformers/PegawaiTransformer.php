@@ -23,7 +23,9 @@ class PegawaiTransformer extends TransformerAbstract
             'pgw_jabatan' => $pegawais->pgw_jabatan,
             'pgw_username' => $pegawais->pgw_username,
             'pgw_password'=> $pegawais->pgw_password,
-            'cab_id'=> $pegawais->$cabangs->cab_id,
+            // 'namacabang'=> $pegawais->cabangs->cab_nama,
+
+            'cab_id'=> $pegawais->cab_id,
         ];
     }
 }

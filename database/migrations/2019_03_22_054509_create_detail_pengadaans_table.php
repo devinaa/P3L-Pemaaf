@@ -15,9 +15,9 @@ class CreateDetailPengadaansTable extends Migration
     {
         Schema::create('detail_pengadaans', function (Blueprint $table) {
             $table->increments('dpgd_id');
-            $table->string('ta_id',10);
+            $table->integer('ta_id')->unsigned();
             $table->foreign('ta_id')->references('ta_id')->on('transaksi_pengadaans')->onUpdate('cascade');
-            $table->string('sp_id',6);
+            $table->integer('sp_id')->unsigned();
             $table->foreign('sp_id')->references('sp_id')->on('spareparts')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('dpgd_satuan')->unsigned();
             $table->integer('dpgd_jumlah')->unsigned();

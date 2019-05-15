@@ -19,9 +19,11 @@ class CreatePegawaisTable extends Migration
             $table->string('pgw_alamat',50);
             $table->double('pgw_gaji');
             $table->string('pgw_telepon',16);
-            $table->string('pgw_jabatan',5);
-            $table->string('pgw_username',6);
-            $table->string('pgw_password');
+            $table->string('pgw_jabatan',6);
+            $table->string('pgw_username',6)->nullable()->unique();
+            $table->string('pgw_password')->nullable();
+            $table->integer('cab_id')->unsigned();
+            $table->foreign('cab_id')->references('cab_id')->on('cabangs')->onUpdate('cascade');
             $table->timestamps();
         });
 

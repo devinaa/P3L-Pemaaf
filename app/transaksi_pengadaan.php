@@ -11,6 +11,14 @@ class transaksi_pengadaan extends Model
     public $timestamps = true;
     protected $fillable = [
         'su_id',
-        'ta_tanggal'
+        'ta_tanggal',
+        'surat_status'
+
     ];
+    public function supllier(){
+        return $this->belongsTo('App\supplier','su_id');
+    }
+    public function detail_pengadaan(){
+        return $this->hasMany('App\detail_pengadaan','ta_id');
+    }
 }

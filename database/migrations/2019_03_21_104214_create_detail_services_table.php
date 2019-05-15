@@ -21,6 +21,7 @@ class CreateDetailServicesTable extends Migration
            $table->foreign('tj_id')->references('tj_id')->on('transaksi_juals')->onUpdate('cascade');
            $table->string('ds_jasa');
            $table->double('ds_jumlah'); 
+           $table->double('subSV'); 
            $table->timestamps();
         });
     }

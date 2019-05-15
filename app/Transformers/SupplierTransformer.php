@@ -17,7 +17,7 @@ class SupplierTransformer extends TransformerAbstract
         return [
             'su_id' => $suppliers->su_id,
             'su_nama' => $suppliers->su_nama,
-            'su_telepon' => $suppliers->su__telepon,
+            'su_telepon' => $suppliers->su_telepon,
             'su_namaSales' => $suppliers->su_namaSales,
             'su_teleponSales' => $suppliers->su_teleponSales, 
         ];

@@ -14,9 +14,12 @@ class transaksi_bayar extends Model
        'tb_diskon',
        'pgw_id',
        'tj_id', 
+       'tb_status',
    ];
-   public function pegawais(){
-        return $this->hasMany('App\pegawai','pgw_id');
+   public function pegawaikerja(){
+        return $this->belongsTo('App\pegawaikerja','id');
     }
-    
+    public function transaksi_jual(){
+        return $this->belongsTo('App\transaksi_jual','tj_id');
+    }
 }

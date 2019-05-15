@@ -1,5 +1,7 @@
 <?php
 
+
+use DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -20,6 +22,7 @@ class CreateCabangsTable extends Migration
             $table->string('cab_telepon',13);
             $table->string('cab_web',30);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -30,6 +33,8 @@ class CreateCabangsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cabangs');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Schema::dropIfExists('cabangs'); 
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

@@ -10,9 +10,14 @@ class detail_pengadaan extends Model
     protected $primaryKey = 'dpgd_id';
     public $timestamps = true;
     protected $fillable = [
-        'ta_id',
         'sp_id',
         'dpgd_satuan',
         'dpgd_jumlah'
         ];
+        public function sparepart(){
+        return $this->belongsTo('App\sparepart','sp_id');
+        }
+        public function transaksi_pengadaan(){
+            return $this->belongsTo('App\transaksi_pengadaan','ta_id');
+        }
 }

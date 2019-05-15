@@ -14,4 +14,11 @@ class detail_sparepart extends Model
         'tj_id',
         'ds_jumlah',
         ];
+
+    public function sparepart(){
+        return $this->belongsTo('App\sparepart','sp_id');
+    }
+    public function transaksi_jual(){
+        return $this->belongsTo('App\transaksi_jual','tj_id');
+    }
 }
